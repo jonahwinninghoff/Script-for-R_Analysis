@@ -68,7 +68,7 @@ select(messy, Subject, Activities, c(V1:V6), c(V41:V46),
        c(V503, V504, V516, V517, V529, V530, V542, V543)) -> cleaner
 
 
-# The gsub applies to replace 1,2,3,4, & 56 by walking, walking upstairs, walking downstairs, sitting, standing, & laying. Then, each word is unquoted. I followed this organization based code book of "Activities."
+# The gsub applies to replace 1,2,3,4, & 56 by walking, walking upstairs, walking downstairs, sitting, standing, & laying. Then, each word is unquoted. I followed this organization based code book of "activity_labels.txt."
 
 
 gsub(1, "walking", cleaner$Activities) -> cleaner$Activities
@@ -86,7 +86,7 @@ gsub(6, "laying", cleaner$Activities) -> cleaner$Activities
 gsub('"', '', cleaner$Activities) -> cleaner$Activities
 
 
-# The next painstaking part is to make each column header descriptive, like over 60 column headers.
+# The next painstaking part is to make each column header descriptive, like over 60 column headers based on code book of "features.txt."
 
 
 rename(cleaner, tBodyAcc_mean.X = "V1") -> cleaner
