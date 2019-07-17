@@ -1,3 +1,7 @@
+## Before I start R Program, I obtain these databases and organize in my file
+
+http://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.zip
+
 ## The first thing I do is to obtain all unassembled datasets (y_test.txt, X_test.txt, subject_test.txt, y_train.txt, X_train.txt, and subject_train.txt). 
 
 
