@@ -1,8 +1,8 @@
-## Before I start R Program, I obtain these databases and organize in my file
+# Before I start R Program, I obtain these databases and organize in my file
 
 http://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.zip
 
-## The first thing I do is to obtain all unassembled datasets (y_test.txt, X_test.txt, subject_test.txt, y_train.txt, X_train.txt, and subject_train.txt). 
+# The first thing I do is to obtain all unassembled datasets (y_test.txt, X_test.txt, subject_test.txt, y_train.txt, X_train.txt, and subject_train.txt). 
 
 
 paste(getwd(), "/Desktop/Assignment4/train/subject_train.txt", sep = "") -> a
@@ -30,7 +30,7 @@ read.table(y) -> y
 read.table(z) -> z
 
 
-## The next thing I do is to rename y_test.txt, y_train.txt, subject_test.txt, and subject_train.txt from "V1" to "Activities" and "Subject" before I can assemble them because each column must have unique names. Otherwise, the assembled dataset would have double or three times "V1", which is undesired.
+# The next thing I do is to rename y_test.txt, y_train.txt, subject_test.txt, and subject_train.txt from "V1" to "Activities" and "Subject" before I can assemble them because each column must have unique names. Otherwise, the assembled dataset would have double or three times "V1", which is undesired.
 
 
 library(dplyr)
@@ -44,7 +44,7 @@ rename(x, Subject = "V1") -> x
 rename(y, Activities = "V1") -> y
 
 
-## Then all datasets assemble together into messy dataset
+# Then all datasets assemble together into messy dataset
 
 
 cbind(a, b) -> a
@@ -58,7 +58,7 @@ rbind(c, z) -> c
 cbind(a, c) -> messy
 
 
-## The next thing I do is to extract certain columns contained with statistics of either mean or standard derviation.
+# The next thing I do is to extract certain columns contained with statistics of either mean or standard derviation.
 
 
 select(messy, Subject, Activities, c(V1:V6), c(V41:V46), 
@@ -68,7 +68,7 @@ select(messy, Subject, Activities, c(V1:V6), c(V41:V46),
        c(V503, V504, V516, V517, V529, V530, V542, V543)) -> cleaner
 
 
-## The gsub applies to replace 1,2,3,4, & 56 by walking, walking upstairs, walking downstairs, sitting, standing, & laying. Then, each word is unquoted.
+# The gsub applies to replace 1,2,3,4, & 56 by walking, walking upstairs, walking downstairs, sitting, standing, & laying. Then, each word is unquoted. I followed this organization based code book of "Activities."
 
 
 gsub(1, "walking", cleaner$Activities) -> cleaner$Activities
@@ -86,7 +86,7 @@ gsub(6, "laying", cleaner$Activities) -> cleaner$Activities
 gsub('"', '', cleaner$Activities) -> cleaner$Activities
 
 
-## The next painstaking part is to make each column header descriptive, like over 60 column headers.
+# The next painstaking part is to make each column header descriptive, like over 60 column headers.
 
 
 rename(cleaner, tBodyAcc_mean.X = "V1") -> cleaner
@@ -215,7 +215,7 @@ rename(cleaner, fBodyBodyGyroJerkMag_std = "V543") -> TidyData
 
 
 
-## Finally, I use dplyr summary with mean and write them into cleaned read.table dataset.
+# Finally, I use dplyr summary with mean and write them into cleaned read.table dataset.
 
 
 
