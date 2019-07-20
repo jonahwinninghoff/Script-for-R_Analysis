@@ -6,6 +6,7 @@ This document 'README' is a part of my "Getting & Cleaning Data" course project 
 
 
 List of files:
+
 README.md
 
 Run_analysis.R 
