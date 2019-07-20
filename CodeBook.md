@@ -1,4 +1,5 @@
 ##Introduction
+
 The code book presents the information to understanding how useful the dataset can be and what a kind of structure 
 it has. This tidy dataset obtains from this url address http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
@@ -7,7 +8,9 @@ Variables (Columns)
 The tidy data set shows the list of variables:
 
 Variabl
+
 Subject: The integers refers to ID of the subject
+
 Activity: The character shows each kind of activities (for example: walking, standing, laying, walking upstairs, walking downstairs, and sitting).
 
 All list below is a numeric analysis of body movement based on mean and std (standard deviation).
